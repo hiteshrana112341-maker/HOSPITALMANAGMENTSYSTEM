@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hospital Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <nav>
+    <h1>City Hospital<br>Management</h1>
+    <button data-tab="dash" class="active">Dashboard</button>
+    <button data-tab="patients">Patients</button>
+    <button data-tab="doctors">Doctors</button>
+    <button data-tab="appts">Appointments</button>
+  </nav>
+
+  <main>
+
+    <!-- Dashboard -->
+    <section id="dash">
+      <h2>Dashboard</h2>
+      <div class="stats">
+        <div class="stat"><b id="cP">0</b>Patients</div>
+        <div class="stat"><b id="cD">0</b>Doctors</div>
+        <div class="stat"><b id="cA">0</b>Appointments</div>
+      </div>
+    </section>
+
+    <!-- Patients -->
+    <section id="patients" hidden>
+      <h2>Patients</h2>
+      <form id="fP">
+        <label>Name<input name="name" required></label>
+        <label>Age<input name="age" type="number" min="0" max="120"></label>
+        <label>Gender
+          <select name="gender">
+            <option>Female</option>
+            <option>Male</option>
+            <option>Other</option>
+          </select>
+        </label>
+        <label>Condition<input name="disease"></label>
+        <button class="primary">Add patient</button>
+      </form>
+
+      <label style="margin-bottom:10px">Search
+        <input id="search" placeholder="Name or condition">
+      </label>
+
+      <div class="tablebox">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Condition</th><th></th></tr>
+          </thead>
+          <tbody id="tP"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Doctors -->
+    <section id="doctors" hidden>
+      <h2>Doctors</h2>
+      <form id="fD">
+        <label>Name<input name="name" required></label>
+        <label>Speciality<input name="speciality"></label>
+        <button class="primary">Add doctor</button>
+      </form>
+
+      <div class="tablebox">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Speciality</th><th></th></tr>
+          </thead>
+          <tbody id="tD"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Appointments -->
+    <section id="appts" hidden>
+      <h2>Appointments</h2>
+      <form id="fA">
+        <label>Patient<select name="patientId" id="selP"></select></label>
+        <label>Doctor<select name="doctorId" id="selD"></select></label>
+        <label>Date and time<input name="date" type="datetime-local" required></label>
+        <button class="primary">Book appointment</button>
+      </form>
+
+      <div class="tablebox">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Patient</th><th>Doctor</th><th>When</th><th></th></tr>
+          </thead>
+          <tbody id="tA"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

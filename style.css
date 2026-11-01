@@ -1,0 +1,211 @@
+/* ===== Theme colors ===== */
+:root {
+  --bg: #f3f7f6;
+  --card: #ffffff;
+  --ink: #12302e;
+  --muted: #5d7a77;
+  --line: #d5e3e0;
+  --accent: #0b7a75;
+  --danger: #b3382c;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
+}
+
+main {
+  padding: 28px;
+  max-width: 960px;
+}
+
+h2 {
+  margin: 0 0 16px;
+}
+
+/* ===== Sidebar navigation ===== */
+nav {
+  background: var(--ink);
+  color: #ffffff;
+  padding: 24px 16px;
+}
+
+nav h1 {
+  font-size: 18px;
+  margin: 0 0 24px;
+  line-height: 1.3;
+}
+
+nav button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  color: #bcd6d3;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+nav button:hover,
+nav button.active {
+  background: #1d4a47;
+  color: #ffffff;
+}
+
+/* ===== Dashboard ===== */
+.stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 14px 20px;
+  border-radius: 8px;
+  min-width: 140px;
+}
+
+.stat b {
+  font-size: 26px;
+  display: block;
+  color: var(--accent);
+}
+
+/* ===== Forms ===== */
+form,
+.tablebox {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+label {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+input,
+select {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+  min-width: 150px;
+}
+
+button.primary {
+  background: var(--accent);
+  color: #ffffff;
+  border: 0;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+
+th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.del {
+  background: none;
+  border: 0;
+  color: var(--danger);
+  cursor: pointer;
+  font: inherit;
+}
+
+.empty {
+  color: var(--muted);
+  padding: 12px 8px;
+}
+
+/* ===== Toast message ===== */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--ink);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  display: none;
+}
+
+#toast.err {
+  background: var(--danger);
+}
+
+/* ===== Keyboard focus ===== */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 700px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 12px;
+  }
+
+  nav h1 {
+    width: 100%;
+    margin: 0 0 6px;
+  }
+
+  nav button {
+    width: auto;
+  }
+}
